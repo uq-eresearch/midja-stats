@@ -33,7 +33,7 @@ midjaNewRegression <- function(inputjsonstr) {
 
   # SQL injection? check for ';' characters?
   drv <- dbDriver("PostgreSQL")
-  con <- dbConnect(drv, user="postgres", password="1234321", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="203.101.234.216", port=5432)
+  con <- dbConnect(drv, user="publicuser", password="public", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
 
   #query <- paste("select", paste(xvar, yvar, "ra_name", sep=","), "from", dataset, "where iloc_code in(", paste0("'", iloc_codes, "'",collapse=",") , ")")
   query <- paste("select", paste(depVar, paste(indepVars, collapse=","), sep=","), "from", dataset, "where", paste(unit_type, "_code", sep=""), "in(", paste0("'", unit_codes, "'",collapse=",") , ")")
@@ -123,7 +123,7 @@ midjaRegression <- function(depVar, indepVars) {
 
 	# SQL injection? check for ';' characters?
 	drv <- dbDriver("PostgreSQL")
-	con <- dbConnect(drv, user="postgres", password="foo", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
+	con <- dbConnect(drv, user="publicuser", password="public", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
 
 	query <- paste("select", paste(depVar, paste(indepVars, collapse=","), sep=","), "from iloc_merged_dataset")
 	res <- dbSendQuery(con, statement=query)
