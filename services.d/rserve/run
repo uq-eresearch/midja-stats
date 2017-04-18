@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+exec 2>&1
+cd /usr/src/app
+exec R CMD Rserve --quiet --vanilla
