@@ -36,7 +36,7 @@ midjaNewScatterplot <- function(inputjsonstr) {
 
   # SQL injection? check for ';' characters?
   drv <- dbDriver("PostgreSQL")
-  con <- dbConnect(drv, user="publicuser", password="public", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
+  con <- dbConnect(drv, user="publicuser", password="public", dbname="midja_map", host="localhost", port=5432)
 
   query <- paste("select", paste(xvar, yvar, "ra_name", "iloc_name", sep=","), "from", dataset, "where iloc_code in(", paste0("'", iloc_codes, "'",collapse=",") , ")")
   #query <- paste("select", paste(xvar, yvar, "ra_name", sep=","), "from", dataset)
@@ -118,7 +118,7 @@ midjaNewRegression <- function(inputjsonstr) {
 
   # SQL injection? check for ';' characters?
   drv <- dbDriver("PostgreSQL")
-  con <- dbConnect(drv, user="publicuser", password="public", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
+  con <- dbConnect(drv, user="publicuser", password="public", dbname="midja_map", host="localhost", port=5432)
 
   query <- paste("select", paste(depVar, paste(indepVars, collapse=","), sep=","), "from", dataset)
   res <- dbSendQuery(con, statement=query)
@@ -206,7 +206,7 @@ midjaRegression <- function(depVar, indepVars) {
 
 	# SQL injection? check for ';' characters?
 	drv <- dbDriver("PostgreSQL")
-	con <- dbConnect(drv, user="publicuser", password="public", dbname="cartodb_dev_user_6917ba11-1bf9-43b7-8929-a0585a8667e6_db", host="localhost", port=5432)
+	con <- dbConnect(drv, user="publicuser", password="public", dbname="midja_map", host="localhost", port=5432)
 
 	query <- paste("select", paste(depVar, paste(indepVars, collapse=","), sep=","), "from iloc_merged_dataset")
 	res <- dbSendQuery(con, statement=query)
