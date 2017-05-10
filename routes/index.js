@@ -41,7 +41,6 @@ var validate_structure = function(inp) {
 
 /* POST to service */
 router.post('/', function(req, res, next) {
-  console.log("received body: ", JSON.stringify(req.body));
   outputjson = req.body;
   if (req.body.expr) {
     rio.evaluate(req.body.expr, {
