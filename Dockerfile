@@ -13,7 +13,6 @@ RUN Rscript -e \
   " options(repos=structure(c(CRAN='https://cran.csiro.au'))); \
     install.packages(c( \
       'Rserve', \
-      'RPostgreSQL', \
       'RJSONIO'))"
 # Install s6
 RUN curl -sL https://github.com/just-containers/s6-overlay/releases/download/v1.19.1.1/s6-overlay-amd64.tar.gz | tar xzv -C /
