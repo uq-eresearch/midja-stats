@@ -19,7 +19,6 @@ RUN curl -sL https://github.com/just-containers/s6-overlay/releases/download/v1.
 
 WORKDIR /usr/src/app
 COPY . /usr/src/app/
-RUN ln -s /tmp /usr/src/app/public
 RUN npm install
 RUN echo "deamon disable" >> /etc/Rserv.conf
 COPY services.d/ /etc/services.d/
