@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y apt-transport-https && apt-get clean
 RUN echo "deb https://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list && \
   apt-key adv --keyserver keys.gnupg.net --recv-key 381BA480 && \
   apt-get update && \
-  apt-get install -y r-base gdebi-core libcurl4-openssl-dev libssl-dev socat && \
+  apt-get install -y r-base && \
   apt-get clean
 # Install R packages
 RUN Rscript -e \
